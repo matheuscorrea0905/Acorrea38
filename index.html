@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ACORREA Construções Civil – Barracões em Blocos Londrina</title>
+
+<meta name="description" content="Especialistas em construção de barracões em blocos, obras comerciais e residenciais em Londrina e região. Orçamento rápido e sem compromisso.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --amarelo:#facc15;
+ --escuro:#0e0e0e;
+ --cinza:#f2f2f2;
+ --borda:#e5e5e5;
+}
+
+*{box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{
+ margin:0;
+ background:#fafafa;
+}
+
+/* ===== HEADER PREMIUM ===== */
+header{
+ text-align:center;
+ padding:40px 12px;
+ background:#fff;
+ border-bottom:4px solid var(--amarelo);
+}
+
+.logo{
+ max-width:340px;
+ margin:12px 0;
+}
+
+.titulo{
+ font-size:18px;
+ letter-spacing:.5px;
+}
+
+/* ===== NAVEGAÇÃO ===== */
+nav{
+ display:flex;
+ justify-content:center;
+ gap:20px;
+ flex-wrap:wrap;
+ margin-top:12px;
+}
+
+nav a{
+ text-decoration:none;
+ color:#000;
+ font-weight:700;
+ position:relative;
+}
+
+nav a::after{
+ content:'';
+ width:0%;
+ height:2px;
+ background:var(--amarelo);
+ position:absolute;
+ left:0;bottom:-4px;
+ transition:.3s;
+}
+
+nav a:hover::after{width:100%}
+
+/* ===== BOTÕES ===== */
+.btn{
+ background:var(--amarelo);
+ color:#000;
+ padding:13px 18px;
+ border-radius:8px;
+ text-decoration:none;
+ font-weight:800;
+ display:inline-block;
+ transition:.3s;
+}
+
+.btn:hover{
+ transform:translateY(-2px);
+ box-shadow:0 6px 14px rgba(0,0,0,.15);
+}
+
+/* ===== SOCIAIS ESTILIZADO ===== */
+.sociais{
+ display:flex;
+ justify-content:center;
+ gap:10px;
+ margin-top:12px;
+}
+
+.sociais a{
+ background:#000;
+ color:#fff;
+ padding:8px 12px;
+ border-radius:8px;
+ font-size:13px;
+ text-decoration:none;
+ transition:.3s;
+}
+
+.sociais a:hover{
+ background:var(--amarelo);
+ color:#000;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+ max-width:1100px;
+ margin:auto;
+ padding:12px;
+}
+
+/* ===== CARDS PROFISSIONAIS ===== */
+.card{
+ background:#fff;
+ padding:20px;
+ margin:18px 0;
+ border-radius:16px;
+ border:1px solid var(--borda);
+ box-shadow:0 10px 25px rgba(0,0,0,.06);
+ opacity:0;
+ transform:translateY(30px);
+ transition:.6s;
+}
+
+.card.visivel{
+ opacity:1;
+ transform:translateY(0);
+}
+
+.card h2{
+ border-left:4px solid var(--amarelo);
+ padding-left:10px;
+}
+
+/* ===== SERVIÇOS ===== */
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+ gap:10px;
+ text-align:center;
+ font-weight:700;
+}
+
+.grid div{
+ background:#fafafa;
+ padding:10px;
+ border-radius:10px;
+ border:1px solid #eee;
+ transition:.3s;
+}
+
+.grid div:hover{
+ background:var(--amarelo);
+}
+
+/* ===== SLIDER PROFISSIONAL ===== */
+.slider-container{
+ max-width:900px;
+ margin:auto;
+ position:relative;
+ overflow:hidden;
+ border-radius:14px;
+}
+
+.slider{display:flex;transition:.6s}
+
+.slide{min-width:100%;position:relative}
+
+/* overlay tipo portfólio */
+.slide::after{
+ content:'Ver imagem';
+ position:absolute;
+ bottom:10px;
+ right:10px;
+ background:rgba(0,0,0,.7);
+ color:#fff;
+ padding:6px 10px;
+ border-radius:6px;
+ font-size:12px;
+ opacity:.8;
+}
+
+.slide img{
+ width:100%;
+ aspect-ratio:16/9;
+ object-fit:cover;
+ border-radius:14px;
+ cursor:pointer;
+}
+
+@media(max-width:768px){
+ .slide img{aspect-ratio:4/3}
+}
+
+/* BOTÕES SLIDER */
+.prev,.next{
+ position:absolute;
+ top:50%;
+ transform:translateY(-50%);
+ background:rgba(0,0,0,.6);
+ color:#fff;
+ border:none;
+ padding:10px;
+ border-radius:50%;
+ cursor:pointer;
+}
+
+.prev{left:10px}
+.next{right:10px}
+
+.dots{text-align:center;margin-top:6px}
+
+.dot{
+ height:10px;width:10px;
+ background:#ccc;
+ border-radius:50%;
+ display:inline-block;
+ margin:0 3px;
+ cursor:pointer;
+}
+
+.dot.active{background:var(--amarelo)}
+
+/* ===== LIGHTBOX ===== */
+#visor{
+ position:fixed;
+ top:0;left:0;
+ width:100%;height:100%;
+ background:rgba(0,0,0,.88);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ z-index:999;
+}
+
+#visor img{
+ max-width:92%;
+ max-height:92%;
+ border-radius:10px;
+}
+
+/* ===== WHATS FLUTUANTE ===== */
+.whats{
+ position:fixed;
+ right:15px;
+ bottom:15px;
+ background:#25d366;
+ color:#fff;
+ padding:14px;
+ border-radius:50%;
+ font-size:22px;
+ text-decoration:none;
+ box-shadow:0 4px 10px rgba(0,0,0,.2);
+ transition:.3s;
+}
+
+.whats:hover{transform:scale(1.06)}
+
+/* ===== RODAPÉ PREMIUM ===== */
+footer{
+ text-align:center;
+ padding:30px 12px;
+ font-size:14px;
+ border-top:3px solid var(--amarelo);
+ margin-top:20px;
+ background:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a class="btn" target="_blank" href="https://wa.me/5543984929910">
+Solicite já seu orçamento
+</a>
+
+<div>
+<img src="logoacorrea.png" class="logo">
+</div>
+
+<p class="titulo">
+Especialistas em barracões com blocos • Londrina e Região
+</p>
+
+<p><i>"Tudo posso naquele que me fortalece" — Filipenses 4:13</i></p>
+
+<nav>
+<a href="#sobre">Sobre</a>
+<a href="#porque">Por que escolher</a>
+<a href="#servicos">Serviços</a>
+<a href="#galeria">Obras</a>
+</nav>
+
+<div class="sociais">
+<a target="_blank" href="https://www.instagram.com/a_correa_construcaocivil/">Instagram</a>
+<a target="_blank" href="https://www.tiktok.com/@alexandrecorrea037">TikTok</a>
+<a target="_blank" href="https://wa.me/5543984929910">WhatsApp</a>
+</div>
+
+</header>
+
+<div class="container">
+
+<section id="sobre" class="card">
+<h2>Quem Somos</h2>
+
+<p>
+<strong>A ACORREA Construções Civil</strong> é referência em Londrina e região na construção de barracões em blocos e obras comerciais, unindo técnica, experiência e compromisso para entregar obras seguras e econômicas.
+</p>
+</section>
+
+<section id="porque" class="card">
+<h2>Por que escolher a ACORREA?</h2>
+
+<ul>
+<li>✔ Equipe própria e experiente</li>
+<li>✔ Entrega rápida e organizada</li>
+<li>✔ Sistema em blocos: resistência e economia</li>
+<li>✔ Orçamento justo e sem surpresas</li>
+<li>✔ Acompanhamento técnico completo</li>
+<li>✔ Atendimento em Londrina e região</li>
+</ul>
+</section>
+
+<section id="servicos" class="card">
+<h2>Nossos Serviços</h2>
+
+<div class="grid">
+<div>🏗️ Barracões</div>
+<div>🏠 Casas</div>
+<div>🔧 Reformas</div>
+<div>⬜ Pisos</div>
+<div>🎨 Pintura</div>
+<div>✨Acabamentos</div>
+</div>
+</section>
+
+<section id="galeria" class="card">
+<h2>Algumas Obras</h2>
+
+<div class="slider-container">
+
+<div class="slider" id="slider">
+<div class="slide"><img src="obra1.png" onclick="abrir(this)"></div>
+<div class="slide"><img src="obra2.png" onclick="abrir(this)"></div>
+<div class="slide"><img src="obra3.png" onclick="abrir(this)"></div>
+<div class="slide"><img src="obra4.png" onclick="abrir(this)"></div>
+</div>
+
+<button class="prev" onclick="mudar(-1)">❮</button>
+<button class="next" onclick="mudar(1)">❯</button>
+
+<div class="dots" id="dots"></div>
+</div>
+
+<p style="text-align:center;font-size:13px">
+Toque na imagem para ampliar
+</p>
+</section>
+
+</div>
+
+<a class="whats" href="https://wa.me/5543984929910">💬</a>
+
+<div id="visor" onclick="fechar()">
+<img id="imgVisor">
+</div>
+
+<footer>
+<b>ACORREA Construções Civil</b><br>
+Feito por Matheus Correa
+
+<p style="margin-top:10px;font-style:italic;font-weight:600">
+" Tudo posso naquele que me fortalece " — Filipenses 4:13
+</p>
+
+</footer>
+
+<script>
+// animação
+const cards = document.querySelectorAll('.card');
+const obs = new IntersectionObserver(e=>{
+ e.forEach(i=>{
+  if(i.isIntersecting) i.target.classList.add('visivel');
+ })
+})
+cards.forEach(c=>obs.observe(c));
+
+// slider
+let index=0;
+const slider=document.getElementById("slider");
+const slides=document.querySelectorAll(".slide");
+const dotsContainer=document.getElementById("dots");
+
+slides.forEach((_,i)=>{
+ dotsContainer.innerHTML+=`<span class="dot" onclick="ir(${i})"></span>`;
+});
+
+const dots=document.querySelectorAll(".dot");
+
+function atualizar(){
+ slider.style.transform=`translateX(-${index*100}%)`;
+ dots.forEach(d=>d.classList.remove("active"));
+ dots[index].classList.add("active");
+}
+
+function mudar(n){
+ index+=n;
+ if(index>=slides.length) index=0;
+ if(index<0) index=slides.length-1;
+ atualizar();
+}
+
+function ir(i){index=i;atualizar();}
+
+setInterval(()=>mudar(1),5000);
+atualizar();
+
+// lightbox
+function abrir(el){
+ imgVisor.src=el.src;
+ visor.style.display='flex';
+}
+
+function fechar(){
+ visor.style.display='none';
+}
+</script>
+
+</body>
+</html>
